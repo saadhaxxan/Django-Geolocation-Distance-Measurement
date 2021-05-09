@@ -35,6 +35,12 @@ calculate distance
 </div>
 
 
-
+{% if request.POST and distance is not None %}
+    <script>
+        $(window).on('load', function(){
+            $('#exampleModal').modal('show')
+        })
+    </script>
+{% endif %}
 
 {% endblock content %}

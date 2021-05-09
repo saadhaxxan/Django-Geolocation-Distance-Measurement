@@ -3,15 +3,17 @@ from .models import Measurement
 from .forms import MeasurementModelForm
 from geopy import Photon
 from geopy.distance import geodesic
-from .utils import get_geo, get_zoom , get_center_coordinates
+from .utils import get_geo, get_zoom , get_center_coordinates, get_ip_address
 import folium
 
 def calculate_distance_view(request):
+    distance = None
+    destination = None
     # obj = get_object_or_404(Measurement,id=1)
     form = MeasurementModelForm(request.POST or None)
     geolocater = Photon(user_agent='measurements')
 
-    ip = '101.53.254.73'
+    ip = get_ip_address(request)
     country,city,lat,lon = get_geo(ip)
     # print(country,lon,lat,city)
     location = geolocater.geocode(city,timeout=10, exactly_one=True)
@@ -32,13 +34,14 @@ def calculate_distance_view(request):
         m = folium.Map(location=get_center_coordinates(lat,lon,d_lat,d_lon),zoom_start=get_zoom(distance))
         folium.Marker([lat,lon],tooltip='Click here to learn more',popup=city['city'],icon=folium.Icon(color='blue')).add_to(m)
         folium.Marker([d_lat,d_lon],tooltip='Click here to learn more',popup=destination,icon=folium.Icon(color='red',icon='cloud')).add_to(m)
+        line = folium.PolyLine(locations=[pointA, pointB], weight=5, color='blue')
+        m.add_child(line)
         instance.save()
     m = m._repr_html_()
     context = {
         'form':form,
-        'map':m
+        'map':m,
+        'distance':distance,
+        'destination':destination
     }
     return render(request,'measurements/main.html',context)
-
-def test(request):
-    pass

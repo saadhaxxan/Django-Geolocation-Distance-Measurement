@@ -9,7 +9,7 @@
 <h4>A django app to calculate distance between two points with folium maps and matrics<h4>
 
 ### Screenshot
-<img src="screenshot.png" height="200px">
+<img src="screenshot.png">
 
 ## Installation steps
 

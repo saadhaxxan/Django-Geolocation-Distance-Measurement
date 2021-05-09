@@ -2,11 +2,14 @@
 <h1>Django Geolocation Distance Measurement</h1>
 <img src="https://www.djangoproject.com/m/img/logos/django-logo-negative.png" height="150px" width="250px">
 <img src="https://miro.medium.com/max/480/1*YTnIluRNB5WWn-HhPIkoWQ.png" height="150px" width="250px">
-<br/>
-<img src="screenshot.png" height="200px">
+<br>
+<br>
 </div>
+<hr>
+<h4>A django app to calculate distance between two points with folium maps and matrics<h4>
 
-<h4>A django app to demonstrate ajax call on file upload along with the progress bar.<h4>
+### Screenshot
+<img src="screenshot.png" height="200px">
 
 ## Installation steps
 

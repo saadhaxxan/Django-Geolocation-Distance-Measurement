@@ -16,8 +16,8 @@
 Clone the Repo and install the requirements
 
 ```
-git clone https://github.com/saadhaxxan/Django-file-upload-progress-bar.git
-cd Django-file-upload-progress-bar
+git clone https://github.com/saadhaxxan/Django-Geolocation-Distance-Measurement.git
+cd Django-Geolocation-Distance-Measurement
 pip install -r requirements.txt
 ```
 ### Get Geodatabases from Maxmindb
